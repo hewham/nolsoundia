@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SoundService } from '../services/sound.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,22 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(
+    public soundService: SoundService
+  ) {
+    this.init();
+  }
+
+  init() {
+    
+  }
+
+  logSound(sound) {
+    console.log(sound)
+  }
+
+  stopSound(sound) {
+    this.soundService.remove(sound);
+  }
 
 }
