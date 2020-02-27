@@ -26,4 +26,8 @@ export class Tab2Page {
     this.soundService.remove(sound);
   }
 
+  volumeChanged(sound) {
+    this.soundService.volumeChanged(sound);
+  }
+
 }

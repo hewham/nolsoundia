@@ -27,7 +27,7 @@ export class SoundService {
     audio.src = soundObj.src;
     audio.load();
 
-    // audio.volume = soundObj.volume;
+    audio.volume = soundObj.volume;
     audio.loop = true;
     audio.play();
 
@@ -60,6 +60,17 @@ export class SoundService {
     console.log("SOUNDS PLAYING:");
     console.log(this.soundsPlaying);
     return;
+  }
+
+  volumeChanged(sound) {
+    for(let i in this.soundsPlaying) {
+      let soundObj = this.soundsPlaying[i];
+      if(soundObj.sound == sound){
+        console.log("VOLUME: ", soundObj.volume);
+        return
+      }
+    }
+    return false;
   }
 
 }

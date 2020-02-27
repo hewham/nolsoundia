@@ -9,7 +9,7 @@
         
         <br>
         <ion-item no-lines>
-        <ion-range min="0" max="1" step=".01" [(ngModel)]="sound.volume">
+        <ion-range min="0" max="1" step=".01" [(ngModel)]="sound.audio.volume" (ionChange)="volumeChanged(sound.sound)">
           <ion-icon small range-left name="sunny"></ion-icon>
           <ion-icon range-right name="sunny"></ion-icon>
         </ion-range>
