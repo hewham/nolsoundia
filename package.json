@@ -1,6 +1,6 @@
 {
   "name": "nolsoundia",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hewham",
   "homepage": "https://hewhamilton.com/",
   "scripts": {
@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "run": "ionic cordova run -l -c -s"
+    "run": "ionic cordova run -l -c -s",
+    "set_version": "node ./src/scripts/set_version.js"
   },
   "private": true,
   "dependencies": {
@@ -51,6 +52,7 @@
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
+    "increase-version": "^1.0.4",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
