@@ -1,38 +1,52 @@
 <ion-content>
-  <div *ngFor="let sound of soundService.soundsPlaying">
-    <ion-card padding>
-        <ion-list-header>
-          <ion-icon size="large" [name]="sound.ionicon"></ion-icon>
-          <ion-label>{{ sound.name }}</ion-label>
-          <ion-icon size="large" color="danger" name="close" (click)="stopSound(sound.sound)"></ion-icon>
-        </ion-list-header>
-        
-        <br>
-        <ion-item no-lines>
-        <ion-range min="0" max="1" step=".01" [(ngModel)]="sound.audio.volume" (ionChange)="volumeChanged(sound.sound)">
-          <ion-icon small range-left name="sunny"></ion-icon>
-          <ion-icon range-right name="sunny"></ion-icon>
-        </ion-range>
-      </ion-item>
-    </ion-card>
-  </div>
+  <ion-card class="welcome-card">
+    <!-- <img src="/assets/shapes.svg" alt="" /> -->
+    <ion-card-header>
+      <ion-card-subtitle>Nolsoundia</ion-card-subtitle>
+      <ion-card-title>Add Sounds</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <span *ngFor="let sound of sounds">
+        <ion-button (click)="playSound(sound.sound)">
+          <ion-icon [name]="sound.ionicon"></ion-icon>
+          &nbsp;&nbsp;&nbsp;{{ sound.name }}
+        </ion-button>
+      </span>
+    </ion-card-content>
+  </ion-card>
 
+  <div class="web-container">
+    <div *ngFor="let sound of soundService.soundsPlaying">
+      <ion-card padding>
+          <ion-list-header>
+            <ion-icon size="large" [name]="sound.ionicon"></ion-icon>
+            <ion-label>{{ sound.name }}</ion-label>
+            <ion-icon size="large" color="danger" name="close" (click)="stopSound(sound.sound)"></ion-icon>
+          </ion-list-header>
+          
+          <br>
+          <ion-item no-lines>
+          <ion-range min="0" max="1" step=".01" [(ngModel)]="sound.audio.volume" (ionChange)="volumeChanged(sound.sound)">
+            <ion-icon small range-left name="sunny"></ion-icon>
+            <ion-icon range-right name="sunny"></ion-icon>
+          </ion-range>
+        </ion-item>
+      </ion-card>
+    </div>
 
-
-
-
-  <div *ngIf="soundService.soundsPlaying.length == 0">
-    <ion-card>
-      <!-- <img src="/assets/imgs/swing.jpg" alt="" /> -->
-      <ion-card-header>
-        <ion-card-title>No Sounds Playing</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>
-          Add sounds from the Sounds tab, and mix them here
-        </p>
-      </ion-card-content>
-    </ion-card>
+    <div *ngIf="soundService.soundsPlaying.length == 0">
+      <ion-card>
+        <!-- <img src="/assets/imgs/swing.jpg" alt="" /> -->
+        <ion-card-header>
+          <ion-card-title>No Sounds Playing</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>
+            Add sounds from the Sounds tab, and mix them here
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
   </div>
 
 </ion-content>

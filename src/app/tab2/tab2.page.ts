@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SoundService } from '../services/sound.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-tab2',
@@ -8,14 +9,25 @@ import { SoundService } from '../services/sound.service';
 })
 export class Tab2Page {
 
+  sounds = [];
+
   constructor(
-    public soundService: SoundService
+    public soundService: SoundService,
+    public dataService: DataService
   ) {
     this.init();
   }
 
   init() {
-    
+    this.sounds = this.dataService.soundObjs;
+  }
+
+  playSound(sound) {
+    this.soundService.add(sound);
+  }
+
+  checkSoundsPlaying() {
+    this.soundService.check();
   }
 
   logSound(sound) {
